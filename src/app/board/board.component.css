@@ -3,3 +3,7 @@
   zoom: 10;
   position: relative;
 }
+
+.border * {
+  position: absolute;
+}
