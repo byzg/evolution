@@ -1,13 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
-import { BoardComponent } from './board/board.component';
-import { CellComponent } from './cell/cell.component';
-import { CellWaterComponent } from './cells/cell-water/cell-water.component';
-import { CellPlantComponent } from './cells/cell-plant/cell-plant.component';
+import { ServiceLocator } from './services/service-locator.service';
+import { RndService } from './services/rnd.service';
+import { BoardService } from './services/board.service';
+import { StarterService } from './services/starter.service';
+
+import { Waters } from './collections/inanimate/waters';
+
+import { AppComponent } from './components/app/app.component';
+import { BoardComponent } from './components/board/board.component';
+import { CellComponent } from './components/cell/cell.component';
+import { CellWaterComponent } from './components/cells/cell-water/cell-water.component';
+import { CellPlantComponent } from './components/cells/cell-plant/cell-plant.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,17 @@ import { CellPlantComponent } from './cells/cell-plant/cell-plant.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    BoardService,
+    RndService,
+    StarterService,
+
+    Waters
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) {
+    ServiceLocator.injector = this.injector;
+  }
+}
