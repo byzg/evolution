@@ -15,6 +15,7 @@ import { BoardComponent } from './components/board/board.component';
 import { CellComponent } from './components/cell/cell.component';
 import { CellWaterComponent } from './components/cells/cell-water/cell-water.component';
 import { CellPlantComponent } from './components/cells/cell-plant/cell-plant.component';
+import { WaterComponent } from './components/water/water.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CellPlantComponent } from './components/cells/cell-plant/cell-plant.com
     BoardComponent,
     CellComponent,
     CellWaterComponent,
-    CellPlantComponent
+    CellPlantComponent,
+    WaterComponent
   ],
   imports: [
     BrowserModule,

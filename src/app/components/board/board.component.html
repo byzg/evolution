@@ -1,4 +1,3 @@
 <div class="board" [style.width.px]="width" [style.height.px]="height">
-  <cell-water></cell-water>
-  <cell-plant></cell-plant>
+  <water *ngFor="let water of waters" [water]="water"></water>
 </div>
