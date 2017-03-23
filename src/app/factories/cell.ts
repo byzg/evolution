@@ -10,4 +10,6 @@ export abstract class Cell {
     _.extend(this, this.rnd.coords())
   }
 
+  tick(): void {}
+
 }
