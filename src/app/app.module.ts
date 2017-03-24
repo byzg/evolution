@@ -9,6 +9,7 @@ import { BoardService } from './services/board.service';
 import { StarterService } from './services/starter.service';
 
 import { Waters } from './collections/inanimate/waters';
+import { Plants } from './collections/alive/plants';
 
 import { AppComponent } from './components/app/app.component';
 import { BoardComponent } from './components/board/board.component';
@@ -16,6 +17,7 @@ import { CellComponent } from './components/cell/cell.component';
 import { CellWaterComponent } from './components/cells/cell-water/cell-water.component';
 import { CellPlantComponent } from './components/cells/cell-plant/cell-plant.component';
 import { WaterComponent } from './components/water/water.component';
+import { PlantComponent } from './components/plant/plant.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { WaterComponent } from './components/water/water.component';
     CellComponent,
     CellWaterComponent,
     CellPlantComponent,
-    WaterComponent
+    WaterComponent,
+    PlantComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { WaterComponent } from './components/water/water.component';
     RndService,
     StarterService,
 
-    Waters
+    Waters,
+    Plants
   ],
   bootstrap: [AppComponent]
 })

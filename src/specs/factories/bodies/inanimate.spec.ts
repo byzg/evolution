@@ -1,7 +1,7 @@
-import { Water } from '../../../app/factories/bodies/inanimate/water';
+import { Inanimate } from '../../../app/factories/bodies/inanimate';
 
-describe('Water', () => {
+describe('Inanimate', () => {
   it('should ...', () => {
-    expect(Water).toBeTruthy();
+    expect(Inanimate).toBeTruthy();
   });
 });

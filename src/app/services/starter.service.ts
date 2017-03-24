@@ -10,7 +10,7 @@ export class StarterService {
   tick: number = 0;
   collections: Array<any[]> = [];
   constructor(waters: Waters) {
-    _.times(300, ()=> {
+    _.times(10, ()=> {
       waters.push(new Water())
     });
     this.collections.push(waters);

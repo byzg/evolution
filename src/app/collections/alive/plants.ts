@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 
-import { Water } from '../../factories/bodies/inanimate/water';
-
 import { BaseCollection } from '../base-collection';
+import { Plant } from '../../factories/bodies/alive/plant';
+
 
 @Injectable()
-export class Waters extends BaseCollection<Water> {
+export class Plants extends BaseCollection<Plant> {
   constructor() {
     super()
   }

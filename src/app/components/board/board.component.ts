@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { BoardService } from '../../services/board.service';
 import { Waters } from '../../collections/inanimate/waters';
+import { Plants } from '../../collections/alive/plants';
 
 @Component({
   selector: 'board',
@@ -14,7 +15,8 @@ export class BoardComponent implements OnInit {
 
   constructor(
     protected board: BoardService,
-    protected waters: Waters
+    protected waters: Waters,
+    protected plants: Plants
   ) { }
 
   ngOnInit() {

@@ -19,13 +19,14 @@ export abstract class Cell {
   }
 
   tick(): void {
-    this.generateSkills()
+    this.generateSkills();
+    _.invokeMap(this.skills, 'run')
   }
 
   generateSkills(): void {
     _.each(this.PROBAS.generateSkills, (prob, skillName)=> {
       if (!_(this.skills).find(['name', skillName]))
-        this.rnd.runWithProb(prob, ()=> this.skills.push(SkillBuilder.build(skillName)))
+        this.rnd.runWithProb(prob, ()=> this.skills.push(SkillBuilder.build(skillName, this)))
     })
   }
 

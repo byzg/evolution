@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { CellPlant } from '../../../factories/cells/cell-plant';
 
 import { CellComponent } from '../../cell/cell.component';
+
 
 @Component({
   selector: 'cell-plant',
@@ -8,11 +11,11 @@ import { CellComponent } from '../../cell/cell.component';
   styleUrls: ['../../cell/cell.component.css', 'cell-plant.component.css']
 })
 export class CellPlantComponent extends CellComponent implements OnInit {
-  type = 'plant';
+  @Input() cell: CellPlant;
+
+  type: string = 'plant';
   constructor() {
     super();
-    this.x = 30;
-    this.y = 5;
   }
 
   ngOnInit() {
