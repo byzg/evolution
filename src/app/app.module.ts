@@ -16,8 +16,8 @@ import { BoardComponent } from './components/board/board.component';
 import { CellComponent } from './components/cell/cell.component';
 import { CellWaterComponent } from './components/cells/cell-water/cell-water.component';
 import { CellPlantComponent } from './components/cells/cell-plant/cell-plant.component';
-import { WaterComponent } from './components/water/water.component';
-import { PlantComponent } from './components/plant/plant.component';
+import { WaterComponent } from './components/bodies/water/water.component';
+import { PlantComponent } from './components/bodies/plant/plant.component';
 
 @NgModule({
   declarations: [

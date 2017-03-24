@@ -4,7 +4,6 @@ import { CellPlant } from '../../../factories/cells/cell-plant';
 
 import { CellComponent } from '../../cell/cell.component';
 
-
 @Component({
   selector: 'cell-plant',
   templateUrl: '../../cell/cell.component.html',

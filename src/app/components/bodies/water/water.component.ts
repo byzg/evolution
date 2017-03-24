@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Water } from '../../factories/bodies/inanimate/water';
+import { Water } from '../../../factories/bodies/inanimate/water';
 
 @Component({
   selector: 'water',
