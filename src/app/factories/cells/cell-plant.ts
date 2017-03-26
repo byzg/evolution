@@ -5,8 +5,4 @@ export class CellPlant extends Cell{
     generateSkills: {
     }
   };
-  constructor() {
-    super()
-  }
-
 }

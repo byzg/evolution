@@ -6,8 +6,4 @@ export class CellWater extends Cell{
       BornPlant: 1
     }
   };
-  constructor() {
-    super()
-  }
-
 }

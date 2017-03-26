@@ -18,8 +18,9 @@ export class BornPlantSkill extends Skill {
 
   run(): void {
     for (let vector of [[-1, 0], [0, -1], [1, 0], [0, 1]]) {
-      if (this.boardService.isFreeSpace({x: this.owner.x + vector[0], y: this.owner.y + vector[1] })) {
-        this.plants.push();
+      let plantCoords = {x: this.owner.x + vector[0], y: this.owner.y + vector[1] };
+      if (this.boardService.isFreeSpace(plantCoords)) {
+        this.plants.push(new Plant(plantCoords));
         break
       }
     }

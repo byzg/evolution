@@ -9,7 +9,7 @@ export class StarterService {
   tick: number = 0;
   collections: Array<any[]> = [];
   constructor(waters: Waters, plants: Plants) {
-    _.times(30, ()=> {
+    _.times(4, ()=> {
       waters.push();
       // plants.push()
     });
