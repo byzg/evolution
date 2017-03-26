@@ -1,17 +1,17 @@
 import * as _ from 'lodash';
 import { Injectable } from '@angular/core';
 
-import { Water } from '../factories/bodies/inanimate/water'
-
-import { Waters } from '../collections/inanimate/waters'
+import { Waters } from '../collections/inanimate/waters';
+import { Plants } from '../collections/alive/plants';
 
 @Injectable()
 export class StarterService {
   tick: number = 0;
   collections: Array<any[]> = [];
-  constructor(waters: Waters) {
-    _.times(10, ()=> {
-      waters.push(new Water())
+  constructor(waters: Waters, plants: Plants) {
+    _.times(30, ()=> {
+      waters.push();
+      plants.push()
     });
     this.collections.push(waters);
     this.startTicks();

@@ -6,8 +6,6 @@ import { BaseCollection } from '../base-collection';
 
 @Injectable()
 export class Waters extends BaseCollection<Water> {
-  constructor() {
-    super()
-  }
+  static bodyClass: Function = Water;
 
 }

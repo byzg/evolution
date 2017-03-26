@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-// import { Plant } from '../../factories/bodies//plant';
+import { Plant } from '../../../factories/bodies/alive/plant';
 
 @Component({
   selector: 'plant',
@@ -8,12 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['plant.component.css']
 })
 export class PlantComponent implements OnInit {
-  // @Input() plant: Plant;
-  plant = {
-    cells: [{x: 5, y: 15}]
-  };
+  @Input() plant: Plant;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
