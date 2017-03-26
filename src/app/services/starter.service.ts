@@ -11,7 +11,7 @@ export class StarterService {
   constructor(waters: Waters, plants: Plants) {
     _.times(30, ()=> {
       waters.push();
-      plants.push()
+      // plants.push()
     });
     this.collections.push(waters);
     this.startTicks();
