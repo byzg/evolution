@@ -8,12 +8,11 @@ import { Plant } from '../bodies/alive/plant'
 
 export class BornPlantSkill extends Skill {
   readonly desc: string = 'Water cells can born plant near itself';
-  plants: Plants;
   boardService: BoardService = this.injector.get(BoardService);
+  plants: Plants = ServiceLocator.injector.get(Plants);
   owner: CellWater;
   constructor(owner) {
     super(owner)
-    this.plants = ServiceLocator.get('Plants');
   }
 
   run(): void {
