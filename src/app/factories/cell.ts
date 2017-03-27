@@ -20,7 +20,7 @@ export abstract class Cell {
     let coords = null;
     if (opts) {
       let [x, y]: [number, number] = [opts.x, opts.y];
-      if (x && y) coords = { x, y };
+      if (_.isNumber(x) && _.isNumber(y)) coords = { x, y };
     }
     _.extend(this, coords || this.rnd.coords());
     this.board.occupySpace({ x: this.x, y: this.y });

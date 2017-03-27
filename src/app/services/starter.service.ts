@@ -10,7 +10,7 @@ export class StarterService {
   pause: boolean = false;
   collections: Array<any[]> = [];
   constructor(waters: Waters, plants: Plants) {
-    _.times(4, ()=> {
+    _.times(400, ()=> {
       waters.push();
       // plants.push()
     });
