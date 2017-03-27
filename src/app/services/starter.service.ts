@@ -7,6 +7,7 @@ import { Plants } from '../collections/alive/plants';
 @Injectable()
 export class StarterService {
   tick: number = 0;
+  pause: boolean = false;
   collections: Array<any[]> = [];
   constructor(waters: Waters, plants: Plants) {
     _.times(4, ()=> {
@@ -19,9 +20,15 @@ export class StarterService {
 
   startTicks() {
     setInterval(()=> {
-      this.tick++;
-      _.invokeMap(this.collections, 'tick');
+      if (!this.pause) {
+        this.tick++;
+        _.invokeMap(this.collections, 'tick');
+      }
     }, 1000)
+  }
+
+  togglePause() {
+    this.pause = !this.pause
   }
 
 }

@@ -9,6 +9,8 @@ import { StarterService } from '../../services/starter.service'
 })
 export class AppComponent {
   title = 'Evolution';
+  starter: StarterService;
   constructor(starter: StarterService) {
+    this.starter = starter;
   }
 }

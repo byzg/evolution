@@ -1,0 +1,12 @@
+app-root {
+  width: 100%;
+}
+.board, .actions {
+  display: inline-block;
+}
+.board {
+  width: 69%
+}
+.actions {
+  width: 29%;
+}
