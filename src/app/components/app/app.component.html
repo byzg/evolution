@@ -1,2 +1,12 @@
 <h1>{{title}}</h1>
-<board></board>
+<div class="board">
+  <board></board>
+</div>
+<div class="actions">
+  <div>Tick: {{starter.tick}}</div>
+  <button (click)="starter.togglePause()">
+    <span *ngIf="!starter.pause">Pause</span>
+    <span *ngIf="starter.pause">Resume</span>
+  </button>
+</div>
+

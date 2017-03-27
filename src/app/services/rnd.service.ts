@@ -13,7 +13,6 @@ export class RndService {
     let freeSpace = _.sample(this.board.spaces);
     let x = freeSpace.x;
     let y = _.sample(freeSpace.y);
-    this.board.occupySpace({ x, y });
     return { x, y }
   }
 
