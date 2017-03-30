@@ -5,7 +5,13 @@ import { ServiceLocator } from '../services/service-locator.service';
 import { RndService } from '../services/rnd.service';
 import { SkillBuilder } from '../services/skill-builder.service';
 
-import { Skill } from './skill'
+import { Skill } from './skill';
+
+interface IProbas {
+  generateSkills: {
+    [index: string]: number
+  };
+}
 
 export abstract class Cell {
   rnd: RndService = ServiceLocator.injector.get(RndService);
@@ -13,14 +19,14 @@ export abstract class Cell {
   x: number;
   y: number;
   skills: Array<Skill> = [];
-  readonly PROBAS = {
+  readonly PROBAS: IProbas = {
     generateSkills: {}
   };
   constructor(opts?: ICoords) {
     let coords = null;
     if (opts) {
-      let [x, y]: [number, number] = [opts.x, opts.y];
-      if (_.isNumber(x) && _.isNumber(y)) coords = { x, y };
+      const [x, y]: [number, number] = [opts.x, opts.y];
+      if (_.isNumber(x) && _.isNumber(y)) { coords = { x, y }; }
     }
     _.extend(this, coords || this.rnd.coords());
     this.board.occupySpace({ x: this.x, y: this.y });
@@ -28,14 +34,15 @@ export abstract class Cell {
 
   tick(): void {
     this.generateSkills();
-    _.invokeMap(this.skills, 'run')
+    _.invokeMap(this.skills, 'run');
   }
 
   generateSkills(): void {
-    _.each(this.PROBAS.generateSkills, (prob, skillName)=> {
-      if (!_(this.skills).find(['name', skillName]))
-        this.rnd.runWithProb(prob, ()=> this.skills.push(SkillBuilder.build(skillName, this)))
-    })
+    _.each(this.PROBAS.generateSkills, (prob, skillName) => {
+      if (!_(this.skills).find(['name', skillName])) {
+        this.rnd.runWithProb(prob, () => this.skills.push(SkillBuilder.build(skillName, this)));
+      }
+    });
   }
 
 }

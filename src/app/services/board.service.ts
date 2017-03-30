@@ -13,8 +13,8 @@ interface ISpaceLine {
 
 @Injectable()
 export class BoardService {
-  readonly WIDTH: Number = 100;
-  readonly HEIGHT: Number = 20;
+  readonly WIDTH: number = 100;
+  readonly HEIGHT: number = 20;
 
   spaces: Array<ISpaceLine> = [];
   constructor() {
