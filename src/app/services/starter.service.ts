@@ -10,6 +10,8 @@ export class StarterService {
   pause: boolean = false;
   collections: Array<any[]> = [];
   constructor(waters: Waters, plants: Plants) {
+    // Waters
+    // debugger
     _.times(400, ()=> {
       waters.push();
       // plants.push()
