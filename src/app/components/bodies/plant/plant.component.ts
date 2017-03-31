@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Plant } from '../../../factories/bodies/alive/plant';
 
 @Component({
-  selector: 'app-plant',
+  selector: 'plant',
   templateUrl: 'plant.component.html',
   styleUrls: ['plant.component.css']
 })

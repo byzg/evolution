@@ -5,7 +5,7 @@ import { CellPlant } from '../../../factories/cells/cell-plant';
 import { CellComponent } from '../cell/cell.component';
 
 @Component({
-  selector: 'app-cell-plant',
+  selector: 'cell-plant',
   templateUrl: '../cell/cell.component.html',
   styleUrls: ['../cell/cell.component.css', 'cell-plant.component.css']
 })

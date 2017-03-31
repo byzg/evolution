@@ -5,7 +5,7 @@ import { Waters } from '../../collections/inanimate/waters';
 import { Plants } from '../../collections/alive/plants';
 
 @Component({
-  selector: 'app-board',
+  selector: 'board',
   templateUrl: 'board.component.html',
   styleUrls: ['board.component.css']
 })

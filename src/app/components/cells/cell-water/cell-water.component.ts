@@ -6,7 +6,7 @@ import { CellComponent } from '../cell/cell.component';
 
 
 @Component({
-  selector: 'app-cell-water',
+  selector: 'cell-water',
   templateUrl: '../cell/cell.component.html',
   styleUrls: ['../cell/cell.component.css', 'cell-water.component.css']
 })
