@@ -1,4 +1,4 @@
-import { Body } from '../body'
+import { Body } from '../body';
 
-export abstract class Inanimate extends Body{
+export abstract class Inanimate extends Body {
 }
