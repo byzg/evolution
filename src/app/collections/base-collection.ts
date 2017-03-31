@@ -13,11 +13,11 @@ export class BaseCollection<T> extends Array<T> {
   push(elem?: T): number {
     if (!this.bodyClass) { this.bodyClass = this.constructor['bodyClass']; }
     super.push(elem || <T>new this.bodyClass());
-    return this.length
+    return this.length;
   }
 
   tick(): void {
-    _.invokeMap(this, 'tick')
+    _.invokeMap(this, 'tick');
   }
 
 }

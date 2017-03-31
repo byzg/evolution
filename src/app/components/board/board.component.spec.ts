@@ -20,7 +20,7 @@ describe('BoardComponent', () => {
   });
 
   it('should copy sizes from staic properties', () => {
-    throw new Error('Pending')
+    throw new Error('Pending');
   //   expect(component.width).toEqual(BoardComponent.WIDTH);
   //   expect(component.height).toEqual(BoardComponent.HEIGHT);
   });

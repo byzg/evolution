@@ -6,29 +6,29 @@ import { Cell } from './cell';
 import { Body } from './body';
 
 export interface ISkill {
-  name: string,
-  desc: string
+  name: string;
+  desc: string;
 }
 
 export type SkillOwner = Cell | Body;
 
 export abstract class Skill {
-  get name(): string {
-    return Skill.replaceName(this.constructor.name)
-  }
-
-  static className(): string {
-    return this.replaceName(this.name)
-  }
-
   readonly desc: string;
   injector: Injector = ServiceLocator.injector;
   owner: SkillOwner;
-  constructor(owner) {
-    this.owner = owner
+
+  static className(): string {
+    return this.replaceName(this.name);
   }
 
   protected static replaceName(name): string {
-    return name.replace(/skill$/i, '')
+    return name.replace(/skill$/i, '');
+  }
+  constructor(owner) {
+    this.owner = owner;
+  }
+
+  get name(): string {
+    return Skill.replaceName(this.constructor.name);
   }
 }
