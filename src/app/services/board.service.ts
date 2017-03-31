@@ -43,7 +43,8 @@ export class BoardService {
   }
 
   private findLine(x: number): ISpaceLine {
-    return _(this.spaces).find((spaceLine) => spaceLine.x = x);
+    // return _(this.spaces).find((spaceLine) => spaceLine.x = x);
+    return this.spaces[x];
   }
 
 }

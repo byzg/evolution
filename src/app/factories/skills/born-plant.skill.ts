@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 import { BoardService } from '../../services/board.service';
 
 import { ServiceLocator } from '../../services/service-locator.service';
@@ -16,12 +18,17 @@ export class BornPlantSkill extends Skill {
   }
 
   run(): void {
-    for (const vector of [[-1, 0], [0, -1], [1, 0], [0, 1]]) {
-      const plantCoords = {x: this.owner.x + vector[0], y: this.owner.y + vector[1] };
-      if (this.boardService.isFreeSpace(plantCoords)) {
-        this.plants.push(new Plant(plantCoords));
-        break;
-      }
+    const vector = _.sample([[-1, 0], [0, -1], [1, 0], [0, 1]]);
+    const plantCoords = {x: this.owner.x + vector[0], y: this.owner.y + vector[1] };
+    if (this.boardService.isFreeSpace(plantCoords)) {
+      this.plants.push(new Plant(plantCoords));
     }
+    // for (const vector of [[-1, 0], [0, -1], [1, 0], [0, 1]]) {
+    //   const plantCoords = {x: this.owner.x + vector[0], y: this.owner.y + vector[1] };
+    //   if (this.boardService.isFreeSpace(plantCoords)) {
+    //     this.plants.push(new Plant(plantCoords));
+    //     break;
+    //   }
+    // }
   }
 }
