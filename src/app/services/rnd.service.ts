@@ -11,8 +11,8 @@ export class RndService {
 
   coords(): ICoords {
     const freeSpace = _.sample(this.board.spaces);
-    let x = freeSpace.x;
-    let y = _.sample(freeSpace.y);
+    const x = freeSpace.x;
+    const y = _.sample(freeSpace.y);
     return { x, y };
   }
 

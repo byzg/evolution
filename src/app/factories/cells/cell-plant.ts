@@ -1,6 +1,6 @@
-import { Cell } from '../cell'
+import { Cell } from '../cell';
 
-export class CellPlant extends Cell{
+export class CellPlant extends Cell {
   readonly PROBAS = {
     generateSkills: {
     }

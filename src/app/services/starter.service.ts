@@ -10,7 +10,7 @@ export class StarterService {
   pause: boolean = false;
   collections: Array<any[]> = [];
   constructor(waters: Waters, plants: Plants) {
-    _.times(400, ()=> {
+    _.times(400, () => {
       waters.push();
       // plants.push()
     });
@@ -19,16 +19,16 @@ export class StarterService {
   }
 
   startTicks() {
-    setInterval(()=> {
+    setInterval(() => {
       if (!this.pause) {
         this.tick++;
         _.invokeMap(this.collections, 'tick');
       }
-    }, 1000)
+    }, 1000);
   }
 
   togglePause() {
-    this.pause = !this.pause
+    this.pause = !this.pause;
   }
 
 }
