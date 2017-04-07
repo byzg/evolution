@@ -1,5 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { Water } from '../../../factories/bodies/inanimate/water';
+
+import { CellWaterComponent } from '../../cells/cell-water/cell-water.component';
 import { WaterComponent } from './water.component';
 
 describe('WaterComponent', () => {
@@ -8,7 +11,10 @@ describe('WaterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WaterComponent ]
+      declarations: [
+        CellWaterComponent,
+        WaterComponent
+      ]
     })
     .compileComponents();
   }));
@@ -16,6 +22,7 @@ describe('WaterComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(WaterComponent);
     component = fixture.componentInstance;
+    component.water = <Water>{};
     fixture.detectChanges();
   });
 

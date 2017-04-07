@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { CellPlant } from '../../../factories/cells/cell-plant';
+import { CellWater } from '../../../factories/cells/cell-water';
 
 @Component({
   selector: 'cell',
@@ -11,7 +12,7 @@ export class CellComponent implements OnInit {
   x: number;
   y: number;
   type: string;
-  cell: CellPlant;
+  cell: CellPlant | CellWater;
   constructor() {}
 
   ngOnInit() {

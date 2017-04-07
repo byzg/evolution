@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { CellWater } from '../../../factories/cells/cell-water';
+
 import { CellWaterComponent } from './cell-water.component';
 
 describe('CellWaterComponent', () => {
@@ -16,6 +18,7 @@ describe('CellWaterComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CellWaterComponent);
     component = fixture.componentInstance;
+    component.cell = <CellWater>{};
     fixture.detectChanges();
   });
 

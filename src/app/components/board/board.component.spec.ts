@@ -1,6 +1,14 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { BoardService } from '../../services/board.service';
+
+import { Waters } from '../../collections/inanimate/waters';
+import { Plants } from '../../collections/alive/plants';
+
 import { BoardComponent } from './board.component';
+
+class StubClass {}
 
 describe('BoardComponent', () => {
   let component: BoardComponent;
@@ -8,7 +16,14 @@ describe('BoardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BoardComponent ]
+      providers: [
+        {provide: BoardService, useClass: StubClass},
+
+        Waters,
+        Plants
+      ],
+      declarations: [ BoardComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));
@@ -19,9 +34,7 @@ describe('BoardComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should copy sizes from staic properties', () => {
-    throw new Error('Pending');
-  //   expect(component.width).toEqual(BoardComponent.WIDTH);
-  //   expect(component.height).toEqual(BoardComponent.HEIGHT);
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });
