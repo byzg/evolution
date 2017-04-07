@@ -49,10 +49,4 @@ describe('BaseCollection', () => {
       expect(_.invokeMap).toHaveBeenCalledWith(service, 'tick');
     }));
   });
-
-  // describe('.bodyClass', () => {
-  //   it('should be equal to Plant class', () => {
-  //     expect(Plants.bodyClass).toEqual(Plant);
-  //   });
-  // });
 });
