@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { BoardService } from '../../services/board.service';
 import { Waters } from '../../collections/inanimate/waters';
@@ -9,7 +9,7 @@ import { Plants } from '../../collections/alive/plants';
   templateUrl: 'board.component.html',
   styleUrls: ['board.component.css']
 })
-export class BoardComponent implements OnInit {
+export class BoardComponent {
   width: Number = this.board.WIDTH;
   height: Number = this.board.HEIGHT;
 
@@ -18,8 +18,4 @@ export class BoardComponent implements OnInit {
     protected waters: Waters,
     protected plants: Plants
   ) { }
-
-  ngOnInit() {
-  }
-
 }

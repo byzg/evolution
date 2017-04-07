@@ -6,7 +6,7 @@ export interface ICoords {
   y: number;
 }
 
-interface ISpaceLine {
+export interface ISpaceLine {
   x: number;
   y: Array<number>;
 }
@@ -43,8 +43,7 @@ export class BoardService {
   }
 
   private findLine(x: number): ISpaceLine {
-    // return _(this.spaces).find((spaceLine) => spaceLine.x = x);
-    return this.spaces[x];
+    return _(this.spaces).find((spaceLine) => spaceLine.x === x);
   }
 
 }

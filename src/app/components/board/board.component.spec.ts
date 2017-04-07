@@ -34,7 +34,16 @@ describe('BoardComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  describe('contructor', () => {
+    it('should have DI services and collections', () => {
+      expect(component['board']).toEqual(jasmine.any(StubClass));
+      expect(component['waters']).toEqual(jasmine.any(Waters));
+      expect(component['plants']).toEqual(jasmine.any(Plants));
+    });
+
+    it('should get width and hight from board service instance', () => {
+      expect(component.width).toEqual(component['board'].WIDTH);
+      expect(component.height).toEqual(component['board'].HEIGHT);
+    });
   });
 });
