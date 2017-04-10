@@ -10,7 +10,6 @@ import { Plants } from '../../collections/alive/plants';
 import { AppComponent } from './app.component';
 import { BoardComponent } from '../board/board.component';
 
-
 class StubClass {}
 
 describe('AppComponent', () => {
