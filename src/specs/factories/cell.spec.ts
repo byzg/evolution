@@ -1,29 +1,69 @@
-// import { BoardService } from '../../app/services/board.service';
-// import { RndService } from '../../app/services/rnd.service';
+import * as _ from 'lodash';
 
+import { TestBed, inject } from '@angular/core/testing';
+import { Injector } from '@angular/core';
+import { ServiceLocator } from '../../app/services/service-locator.service';
+import { BoardService } from '../../app/services/board.service';
+import { RndService } from '../../app/services/rnd.service';
+
+import { InstanceBuilder } from '../support/spec-helper';
 import { Cell } from '../../app/factories/cell';
 
-class CellChild extends Cell {}
-describe('Cell', () => {
-  const instance = (...args) => {
-    if (!this._instance) { this._instance = new CellChild(args[0] || {}); }
-    return this._instance;
+class CellChild extends Cell {
+  readonly PROBAS = {
+    generateSkills: {
+      dancing: 1
+    }
   };
-  afterEach(() => this._instance = null);
+}
+describe('Cell', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        BoardService,
+        RndService
+      ]
+    });
+  });
+  beforeEach(inject([Injector], (injector: Injector) => {
+    ServiceLocator.injector = injector;
+  }));
+  const instance = new InstanceBuilder(afterEach, CellChild).getInstanceFn();
+
   describe('.constructor', () => {
+    let rndSpy: jasmine.Spy;
+    let boardSpy: jasmine.Spy;
+    beforeEach(() => {
+      rndSpy = spyOn(RndService.prototype, 'coords').and.returnValue({ x: 51, y: 17 });
+      boardSpy = spyOn(BoardService.prototype, 'occupySpace');
+    });
     it('should set randomly coordinates', () => {
-      // instance();
-      // const rndSpy = spyOn(RndService.prototype, 'coords').and.returnValue({ x: 51, y: 17 });
-      // const boardSpy = spyOn(BoardService.prototype, 'occupySpace');
-      // expect(instance().x).toEqual(51);
-      // expect(instance().y).toEqual(17);
-      // expect(rndSpy).toHaveBeenCalled();
-      // expect(boardSpy).toHaveBeenCalledWith({ x: 51, y: 17 });
+      expect(instance().x).toEqual(51);
+      expect(instance().y).toEqual(17);
+      expect(rndSpy).toHaveBeenCalled();
+      expect(boardSpy).toHaveBeenCalledWith({ x: 51, y: 17 });
     });
 
-    // it('should has owner as given parameter on constructor', () => {
-    //   const owner = {name: 'qwe'};
-    //   expect(instance(owner).owner).toBe(owner);
-    // });
+    it('should set given coordinates if its a numbers', () => {
+      expect(instance({ x: 23, y: null}).x).toEqual(51);
+      expect(instance.force({ x: 27, y: 34}).x).toEqual(27);
+    });
   });
+
+  describe('#tick', () => {
+    it('should call #generateSkills and run all skills', () => {
+      spyOn(instance(), 'generateSkills');
+      spyOn(_, 'invokeMap');
+      instance().tick();
+      expect(instance().generateSkills).toHaveBeenCalled();
+      expect(_.invokeMap).toHaveBeenCalledWith(instance().skills, 'run');
+    });
+  });
+
+  // describe('#generateSkills', () => {
+  //   it('should call #generateSkills and run all skills', () => {
+  //     spyOn(instance(), 'generateSkills');
+  //     instance().generateSkills();
+  //   });
+  // });
 });
