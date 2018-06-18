@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 
 import { BoardService, ICoords } from '../services/board.service';
 import { ServiceLocator } from '../services/service-locator.service';
@@ -39,7 +39,7 @@ export abstract class Cell {
 
   generateSkills(): void {
     _.each(this.PROBAS.generateSkills, (prob, skillName) => {
-      if (!_(this.skills).find(['name', skillName])) {
+      if (!_.find(this.skills, ['name', skillName])) {
         this.rnd.runWithProb(prob, () => this.skills.push(SkillBuilder.build(skillName, this)));
       }
     });

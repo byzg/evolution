@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { BoardService } from '../../app/services/board.service';

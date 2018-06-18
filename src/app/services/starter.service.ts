@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import { times, invokeMap } from 'lodash-es';
 import { Injectable } from '@angular/core';
 
 import { Waters } from '../collections/inanimate/waters';
@@ -10,9 +10,9 @@ export class StarterService {
   pause: boolean = false;
   collections: Array<any[]> = [];
   constructor(waters: Waters, plants: Plants) {
-    _.times(100, () => {
+    times(10, () => {
       waters.push();
-      // plants.push()
+      plants.push()
     });
     this.collections.push(waters);
     this.startTicks();
@@ -22,7 +22,7 @@ export class StarterService {
     setInterval(() => {
       if (!this.pause) {
         this.tick++;
-        _.invokeMap(this.collections, 'tick');
+        invokeMap(this.collections, 'tick');
       }
     }, 1000);
   }

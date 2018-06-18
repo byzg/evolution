@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 import { Injectable } from '@angular/core';
 
 export interface ICoords {
@@ -43,7 +43,7 @@ export class BoardService {
   }
 
   private findLine(x: number): ISpaceLine {
-    return _(this.spaces).find((spaceLine) => spaceLine.x === x);
+    return _.find(this.spaces, (spaceLine) => spaceLine.x === x);
   }
 
 }

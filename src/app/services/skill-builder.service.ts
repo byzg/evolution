@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 
 import { Skill } from '../factories/skill';
 import { BornPlantSkill } from '../factories/skills/born-plant.skill';
