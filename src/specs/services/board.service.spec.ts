@@ -5,7 +5,7 @@ import { BoardService, ISpaceLine } from '../../app/services/board.service';
 
 describe('BoardService', () => {
   const findLine = (service, x: number): ISpaceLine => {
-    return _(service.spaces).find((spaceLine) => spaceLine.x === x);
+    return _.find(service.spaces, (spaceLine) => spaceLine.x === x);
   };
   const coord = { x: 14, y: 17 };
   beforeEach(() => {

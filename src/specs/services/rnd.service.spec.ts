@@ -1,6 +1,7 @@
 import * as _ from 'lodash-es';
 import { TestBed, inject } from '@angular/core/testing';
 
+import { hardSpyOn } from '../support/spec-helper';
 import { BoardService } from '../../app/services/board.service';
 import { RndService } from '../../app/services/rnd.service';
 
@@ -42,7 +43,7 @@ describe('RndService', () => {
 
   describe('#coords', () => {
     it('should raise if given probe more or less 0', inject([RndService], (service: RndService) => {
-      spyOn(_, 'sample').and.returnValues({x: 107}, 28);
+      hardSpyOn(_, 'sample').and.returnValues({x: 107}, 28);
       expect(service.coords()).toEqual({x: 107, y: 28});
       expect(_.sample).toHaveBeenCalledWith(service['board'].spaces);
     }));
