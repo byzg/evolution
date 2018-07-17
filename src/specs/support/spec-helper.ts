@@ -1,3 +1,5 @@
+import {fn} from "@angular/compiler/src/output/output_ast";
+
 interface IInstanceFn {
   (...args): any;
   drop: Function;
@@ -32,4 +34,10 @@ export class InstanceBuilder {
   private build(...args) {
     return this._instance = new this.klass(...args);
   }
+}
+
+export function hardSpyOn(obj: Object, fnName: string): jasmine.Spy {
+  Object.defineProperty(obj, fnName, { writable: true });
+  obj[fnName] = function () {};
+  return spyOn(obj, fnName)
 }

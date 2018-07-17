@@ -1,6 +1,7 @@
  import * as _ from 'lodash-es';
 import { TestBed, inject } from '@angular/core/testing';
 
+import { hardSpyOn } from '../support/spec-helper';
 import { BaseCollection } from '../../app/collections/base-collection';
 
 class StubBodyClass {}
@@ -44,7 +45,7 @@ describe('BaseCollection', () => {
 
   describe('#tick', () => {
     it('should call tick for each element of collection', localInject((service) => {
-      spyOn(_, 'invokeMap');
+      hardSpyOn(_, 'invokeMap');
       service.tick();
       expect(_.invokeMap).toHaveBeenCalledWith(service, 'tick');
     }));
