@@ -1,7 +1,5 @@
 <h1>{{title}}</h1>
-<div class="board">
-  <board></board>
-</div>
+<board></board>
 <div class="actions">
   <div>Tick: {{starter.tick}}</div>
   <button (click)="starter.togglePause()">
@@ -9,4 +7,3 @@
     <span *ngIf="starter.pause">Resume</span>
   </button>
 </div>
-

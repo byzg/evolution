@@ -1,4 +1,4 @@
-import * as _ from 'lodash-es';
+ import * as _ from 'lodash-es';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { BaseCollection } from '../../app/collections/base-collection';
