@@ -1,9 +1,10 @@
-import { Cell } from '../cell';
+import { Cell, Probas } from '../cell';
 
 export class CellWater extends Cell {
-  readonly PROBAS = {
-    generateSkills: {
-      BornPlant: 1
-    }
+  get PROBAS(): Probas {
+    return {
+      generateSkills: {
+      }
+    };
   };
 }

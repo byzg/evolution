@@ -1,13 +1,10 @@
 import * as _ from 'lodash-es';
-import { TestBed, inject } from '@angular/core/testing';
-import { Injector } from '@angular/core';
 
-import { ServiceLocator } from '../../app/services/service-locator.service';
 import { BoardService } from '../../app/services/board.service';
 import { RndService } from '../../app/services/rnd.service';
 import { SkillBuilder } from '../../app/services/skill-builder.service';
 
-import { InstanceBuilder } from '../support/spec-helper';
+import { configureTestingModuleForFactory, InstanceBuilder } from '../support/spec-helper';
 import { Cell } from '../../app/factories/cell';
 
 class CellChild extends Cell {
@@ -18,17 +15,7 @@ class CellChild extends Cell {
   };
 }
 describe('Cell', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [
-        BoardService,
-        RndService
-      ]
-    });
-  });
-  beforeEach(inject([Injector], (injector: Injector) => {
-    ServiceLocator.injector = injector;
-  }));
+  configureTestingModuleForFactory([BoardService, RndService]);
   const instance = new InstanceBuilder(afterEach, CellChild).getInstanceFn();
 
   describe('.constructor', () => {

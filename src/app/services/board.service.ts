@@ -1,12 +1,12 @@
 import * as _ from 'lodash-es';
 import { Injectable } from '@angular/core';
 
-export interface ICoords {
+export interface Coords {
   x: number;
   y: number;
 }
 
-export interface ISpaceLine {
+export interface SpaceLine {
   x: number;
   y: Array<number>;
 }
@@ -16,7 +16,7 @@ export class BoardService {
   readonly WIDTH: number = 100;
   readonly HEIGHT: number = 20;
 
-  spaces: Array<ISpaceLine> = [];
+  spaces: Array<SpaceLine> = [];
   constructor() {
     _.times(this.WIDTH, ( i) => {
       const space = { x: i, y: [] };
@@ -25,24 +25,24 @@ export class BoardService {
     });
   }
 
-  occupySpace(coord: ICoords) {
-    const line: ISpaceLine = this.findLine(coord.x);
+  occupySpace(coord: Coords) {
+    const line: SpaceLine = this.findLine(coord.x);
     _.pull(line.y, coord.y);
     if (_.isEmpty(line.y)) { _.pull(this.spaces, line);
     }
   }
 
-  isFreeSpace(coords: ICoords): boolean {
+  isFreeSpace(coords: Coords): boolean {
     if (!this.isInBorder(coords)) { return false; }
-    const line: ISpaceLine = this.findLine(coords.x);
+    const line: SpaceLine = this.findLine(coords.x);
     return line && line.y.includes(coords.y);
   }
 
-  isInBorder(coords: ICoords): boolean {
+  isInBorder(coords: Coords): boolean {
     return coords.x < this.WIDTH && coords.x >= 0 && coords.y < this.HEIGHT && coords.y >= 0;
   }
 
-  private findLine(x: number): ISpaceLine {
+  private findLine(x: number): SpaceLine {
     return _.find(this.spaces, (spaceLine) => spaceLine.x === x);
   }
 

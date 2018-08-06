@@ -1,4 +1,7 @@
-import {fn} from "@angular/compiler/src/output/output_ast";
+import { inject, TestBed } from '@angular/core/testing';
+import { Injector } from '@angular/core';
+
+import { ServiceLocator } from '../../app/services/service-locator.service';
 
 interface IInstanceFn {
   (...args): any;
@@ -40,4 +43,13 @@ export function hardSpyOn(obj: Object, fnName: string): jasmine.Spy {
   Object.defineProperty(obj, fnName, { writable: true });
   obj[fnName] = function () {};
   return spyOn(obj, fnName)
+}
+
+export const configureTestingModuleForFactory = (providers) => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({ providers });
+  });
+  beforeEach(inject([Injector], (injector: Injector) => {
+    ServiceLocator.injector = injector;
+  }));
 }

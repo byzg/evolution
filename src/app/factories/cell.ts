@@ -1,34 +1,33 @@
 import * as _ from 'lodash-es';
 
-import { BoardService, ICoords } from '../services/board.service';
+import { BoardService, Coords } from '../services/board.service';
 import { ServiceLocator } from '../services/service-locator.service';
 import { RndService } from '../services/rnd.service';
 import { SkillBuilder } from '../services/skill-builder.service';
 
 import { Skill } from './skill';
 
-interface IProbas {
+export interface Probas {
   generateSkills: {
     [index: string]: number
   };
 }
 
 export abstract class Cell {
+  get PROBAS(): Probas {
+    return {
+      generateSkills: {
+      }
+    };
+  };
   rnd: RndService = ServiceLocator.injector.get(RndService);
   board: BoardService = ServiceLocator.injector.get(BoardService);
   x: number;
   y: number;
   skills: Array<Skill> = [];
-  readonly PROBAS: IProbas = {
-    generateSkills: {}
-  };
-  constructor(opts?: ICoords) {
-    let coords = null;
-    if (opts) {
-      const [x, y]: [number, number] = [opts.x, opts.y];
-      if (_.isNumber(x) && _.isNumber(y)) { coords = { x, y }; }
-    }
-    _.extend(this, coords || this.rnd.coords());
+  constructor(opts?) {
+    const { x, y }: Coords = opts || {};
+    _.extend(this, (x && y) ? { x, y } : this.rnd.coords());
     this.board.occupySpace({ x: this.x, y: this.y });
   }
 

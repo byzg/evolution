@@ -1,7 +1,7 @@
 import * as _ from 'lodash-es';
 import { Injectable } from '@angular/core';
 
-import { BoardService, ICoords } from './board.service';
+import { BoardService, Coords } from './board.service';
 
 @Injectable()
 export class RndService {
@@ -9,7 +9,7 @@ export class RndService {
     protected board: BoardService
   ) { }
 
-  coords(): ICoords {
+  coords(): Coords {
     const freeSpace = _.sample(this.board.spaces);
     const x = freeSpace.x;
     const y = _.sample(freeSpace.y);
