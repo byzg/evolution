@@ -1,10 +1,10 @@
-import { configureTestingModuleForFactory } from '../../support/spec-helper';
+import { configureTestingModuleWithSL } from '../../support/spec-helper';
 import { CellPlant } from '../../../app/factories/cells/cell-plant';
 import { BoardService } from '../../../app/services/board.service';
 import { RndService } from '../../../app/services/rnd.service';
 
 describe('CellPlant', () => {
-  configureTestingModuleForFactory([BoardService, RndService]);
+  configureTestingModuleWithSL([BoardService, RndService]);
   beforeEach(() => {
     this.instance = new CellPlant();
   });

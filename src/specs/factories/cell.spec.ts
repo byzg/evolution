@@ -4,7 +4,7 @@ import { BoardService } from '../../app/services/board.service';
 import { RndService } from '../../app/services/rnd.service';
 import { SkillBuilder } from '../../app/services/skill-builder.service';
 
-import { configureTestingModuleForFactory, InstanceBuilder } from '../support/spec-helper';
+import { configureTestingModuleWithSL, InstanceBuilder } from '../support/spec-helper';
 import { Cell, Probas } from '../../app/factories/cell';
 
 class CellChild extends Cell {
@@ -17,7 +17,7 @@ class CellChild extends Cell {
   };
 }
 describe('Cell', () => {
-  configureTestingModuleForFactory([BoardService, RndService]);
+  configureTestingModuleWithSL([BoardService, RndService]);
   const instance = new InstanceBuilder(afterEach, CellChild).getInstanceFn();
 
   describe('.constructor', () => {

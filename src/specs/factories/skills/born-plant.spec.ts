@@ -1,14 +1,14 @@
 import * as _ from 'lodash-es';
 
 import { BornPlantSkill } from '../../../app/factories/skills/born-plant.skill';
-import { configureTestingModuleForFactory, hardSpyOn } from '../../support/spec-helper';
+import { configureTestingModuleWithSL, hardSpyOn } from '../../support/spec-helper';
 import { BoardService } from '../../../app/services/board.service';
 import { Plants } from '../../../app/collections/alive/plants';
 import { CellWater } from '../../../app/factories/cells/cell-water';
 import { RndService } from '../../../app/services/rnd.service';
 
 describe('BornPlantSkill', () => {
-  configureTestingModuleForFactory([BoardService, Plants, RndService]);
+  configureTestingModuleWithSL([BoardService, Plants, RndService]);
   beforeEach(() => {
     const owner = new CellWater({ x: 10, y: 10 });
     this.instance = new BornPlantSkill(owner);

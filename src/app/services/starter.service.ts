@@ -12,7 +12,7 @@ export class StarterService {
   constructor(waters: Waters, plants: Plants) {
     times(10, () => {
       waters.push();
-      plants.push()
+      plants.push();
     });
     this.collections.push(waters);
     this.startTicks();

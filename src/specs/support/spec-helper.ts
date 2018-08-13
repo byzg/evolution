@@ -42,14 +42,14 @@ export class InstanceBuilder {
 export function hardSpyOn(obj: Object, fnName: string): jasmine.Spy {
   Object.defineProperty(obj, fnName, { writable: true });
   obj[fnName] = function () {};
-  return spyOn(obj, fnName)
+  return spyOn(obj, fnName);
 }
 
-export const configureTestingModuleForFactory = (providers) => {
+export const configureTestingModuleWithSL = (providers) => {
   beforeEach(() => {
     TestBed.configureTestingModule({ providers });
   });
   beforeEach(inject([Injector], (injector: Injector) => {
     ServiceLocator.injector = injector;
   }));
-}
+};
